@@ -28,34 +28,37 @@ const Education = () => {
   ];
 
   return (
-    <div id="Education" className="md:p-24 text-white overflow-hidden flex flex-col md:flex-row items-center md:flex-wrap justify-center bg-slate-400 mx-0 md:mx-20 bg-opacity-5 rounded-lg p-8 mb-10 transition-all duration-1000 cursor-pointer">
-      
-      <h1 className='text-2xl md:text-4xl font-bold text-white mb-8 md:mb-0 md:w-full text-center'>Education</h1>
-      
-      <div className='flex flex-col md:flex-row items-center justify-around w-full pl-10 pt-6 '>
-        
-        <img 
-          className="md:h-80 w-full md:w-auto mb-8 md:mb-0 md:mr-10 object-contain transition-transform duration-500"
+    <div
+      id="Education"
+      className="md:p-24 text-white overflow-hidden flex flex-col md:flex-row items-center md:flex-wrap justify-center bg-slate-400 mx-0 md:mx-20 bg-opacity-5 rounded-lg p-8 mb-10 transition-all duration-1000 cursor-pointer"
+    >
+      <h1 className="text-2xl md:text-4xl font-bold text-white mb-8 md:mb-0 md:w-full text-center">Education</h1>
+
+      <div className="flex flex-col md:flex-row items-center justify-around w-full p-6">
+        <img
+          className="md:h-80 w-full md:w-auto mb-8 md:mb-0 md:mr-10 object-contain transition-transform duration-500 transform "
           src="src\components\images\happy-students-celebrating-graduation.png"
           alt="Graduation"
         />
-        
-        <div className="w-full md:w-2/3 items-center justify-around ">
+
+        <div className="w-full md:w-2/3">
           {educationData.map((item, index) => (
-            <div key={index} className='mb-4 items-center justify-around'>
-              <div 
-                className='flex gap-3 py-4 items-center cursor-pointer  transition-colors duration-300 rounded-lg pl-72'
+            <div key={index} className="mb-4">
+              <div
+                className="flex gap-3 py-4 items-center cursor-pointer transition-colors duration-300 rounded-lg md:px-10"
                 onClick={() => toggleAccordion(index)}
+                aria-expanded={activeIndex === index}
               >
-                <RxDoubleArrowRight size={30} className={`transition-transform duration-300 items-center ${activeIndex === index ? "rotate-90" : ""}`} />
-                <div className={`w-full ${activeIndex === index ? 'text-white items-center justify-between' : ''}`}>
-                  <h2 className='text-xl md:text-2xl font-semibold leading-normal hover:text-white items-center '>
-                    {item.title}
-                  </h2>
-                </div>
+                <RxDoubleArrowRight
+                  size={30}
+                  className={`transition-transform duration-300 ${activeIndex === index ? 'rotate-90' : ''}`}
+                />
+                <h2 className="text-xl md:text-2xl font-semibold leading-normal hover:text-white">
+                  {item.title}
+                </h2>
               </div>
               {activeIndex === index && (
-                <p className='text-sm md:text-md leading-tight pl-10 transition-opacity duration-300 pl-80'>
+                <p className="text-sm md:text-md leading-tight md:px-10 transition-opacity duration-300">
                   {item.details}
                 </p>
               )}
