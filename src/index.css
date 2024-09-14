@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+    scroll-behavior: smooth;
+
+}
+/* Dark Theme */
+body.dark {
+    background-color: #0b0d13;
+    color: white;
+}
+
+/* Light Theme */
+body.light {
+    background-color: white;
+    color: black;
+}
