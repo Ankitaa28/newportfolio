@@ -12,7 +12,7 @@ function Nav() {
                 Portfolio
             </span>
             
-            <ul className={`mx-24 py-2 mt-4 font-semibold md:mt-5  bg-opacity-30 md:border-none text-center md:bg-transparent md:static md:mx-0 md:flex gap-6 ${menuOpen ? 'block' : 'hidden'}`}>
+            <ul className={`mx-24 py-2 mt-4 font-semibold md:mt-5  bg-opacity-30 md:border-none text-center md:bg-transparent md:static md:mx-0 md:flex gap-6 p-10 mb-5 ${menuOpen ? 'block' : 'hidden'}`}>
                 <a href="#Home">
                     <li className="text-md transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Home</li>
                 </a>

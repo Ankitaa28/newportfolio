@@ -17,7 +17,7 @@ const Home = () => {
         </button> */}
       </div>
       <div className='w-full md:w-5/12 flex justify-center md:justify-end'>
-        <img className="w-3/4 md:w-1/2 mt-10 md:mt-20" src="src\components\images\animation-character-portrait-woman-pose-flat-design.png" alt="Character" />
+        <img className="w-3/4 md:w-1/2 mt-10 md:mt-20" src="public\images\animation-character-portrait-woman-pose-flat-design.png" alt="Character" />
       </div>
     </div>
   )
