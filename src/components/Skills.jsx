@@ -11,8 +11,8 @@ const skills = [
   { icon: <SiTailwindcss color="#38B2AC" size={50} />, name: 'Tailwind CSS', level: 'Intermediate' },
   { icon: <SiMysql color="#00758f" size={50} />, name: 'MySQL', level: 'Beginner' },
   { icon: <SiMongodb color="#47A248" size={50} />, name: 'MongoDB', level: 'Beginner' },
-  { icon: <SiCplusplus color="#00549D" size={50} />, name: 'C++', level: 'Advanced' },
-  { icon: <SiC color="#00549D" size={50} />, name: 'C', level: 'Advanced' },
+  { icon: <SiCplusplus color="#00549D" size={50} />, name: 'C++', level: 'Intermediate' },
+  { icon: <SiC color="#00549D" size={50} />, name: 'C', level: 'Intermediate' },
 ];
 
 const Skills = () => {
