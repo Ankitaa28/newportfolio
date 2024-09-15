@@ -70,7 +70,7 @@ const Contact = () => {
             type="text" 
             name="name" 
             placeholder="Enter your Name"  
-            className="mt-4 w-72 h-10 bg-transparent border-b-2 border-gray-300 focus:outline-none text-slate-300"
+            className="mt-4 w-72 h-10 bg-transparent border-b-2 border-gray-300 focus:outline-none text-slate-300 "
             required 
           />
           <input 
@@ -93,15 +93,9 @@ const Contact = () => {
             value="Send Message"  
             className="mt-4 border-2 border-teal-600 bg-teal-600 h-10 rounded-lg text-white hover:bg-teal-700 cursor-pointer w-40 text-center"
           />
-        </form>
-        <img 
-          src="images\social-media-illustration.png" 
-          alt="Social Media Illustration" 
-          className="md:h-96 mt-8 md:mt-0 w-full md:w-1/2 object-cover"
-        />
-      </div>
-
-      {/* Notification for form submission */}
+          
+       
+        {/* Notification for form submission */}
       {message && (
         <div
           className={`mt-4 p-4 w-full md:w-5/6 text-center rounded-lg flex justify-between ${
@@ -117,6 +111,32 @@ const Contact = () => {
          
         </div>
       )}
+
+     
+      </form>
+        <img 
+          src="images\social-media-illustration.png" 
+          alt="Social Media Illustration" 
+          className="md:h-96 mt-8 md:mt-0 w-full md:w-1/2 object-cover"
+        />
+      </div>
+
+      {/* Notification for form submission
+      {message && (
+        <div
+          className={`mt-4 p-4 w-full md:w-5/6 text-center rounded-lg flex justify-between ${
+            messageType === "success" ? "bg-green-500" : "bg-red-500"
+          }`}
+        >
+          <p>{message}</p>
+          <SlClose size={25} color="white"
+            onClick={removeNotification} 
+            className="  bg-transparent  rounded-lg cursor-pointer "
+         />
+           
+         
+        </div>
+      )} */}
     </div>
   );
 };
