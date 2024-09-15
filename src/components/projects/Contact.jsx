@@ -51,7 +51,7 @@ const Contact = () => {
           />
           <textarea 
             name="message" 
-            cols="33" 
+            cols="31" 
             rows="5"  
             className='mt-4 text-slate-300 rounded-xl focus:outline-none border-2 border-gray-300 bg-transparent p-4 focus:rounded-none'
             placeholder='Write your message' 

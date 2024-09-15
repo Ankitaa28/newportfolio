@@ -41,7 +41,7 @@ const Education = () => {
           alt="Graduation"
         />
 
-        <div className="w-full md:w-2/3">
+        <div className="w-full md:w-2/3 items-center ">
           {educationData.map((item, index) => (
             <div key={index} className="mb-4">
               <div
@@ -51,9 +51,9 @@ const Education = () => {
               >
                 <RxDoubleArrowRight
                   size={30}
-                  className={`transition-transform duration-300 ${activeIndex === index ? 'rotate-90' : ''}`}
+                  className={`transition-transform duration-300  ${activeIndex === index ? 'rotate-90' : ''}`}
                 />
-                <h2 className="text-xl md:text-2xl font-semibold leading-normal hover:text-white">
+                <h2 className="text-xl md:text-2xl font-semibold leading-normal hover:text-white ">
                   {item.title}
                 </h2>
               </div>

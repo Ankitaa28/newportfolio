@@ -14,22 +14,22 @@ function Nav() {
             
             <ul className={`mx-24 py-2 mt-4 font-semibold md:mt-5  bg-opacity-30 md:border-none text-center md:bg-transparent md:static md:mx-0 md:flex gap-6 p-10 mb-5 ${menuOpen ? 'block' : 'hidden'}`}>
                 <a href="#Home">
-                    <li className="text-md transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Home</li>
+                    <li className="text-xl transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Home</li>
                 </a>
                 <a href="#Education">
-                    <li className="text-md transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Education</li>
+                    <li className="text-xl transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Education</li>
                 </a>
                 <a href="#Skills">
-                    <li className="text-md transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Skills</li>
+                    <li className="text-xl transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Skills</li>
                 </a>
                 <a href="#Projects">
-                    <li className="text-md transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Projects</li>
+                    <li className="text-xl transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Projects</li>
                 </a>
                 <a href="#About">
-                    <li className="text-md transition-all duration-300 p-1 md:p-0 hover:scale-110">About</li>
+                    <li className="text-xl transition-all duration-300 p-1 md:p-0 hover:scale-110">About</li>
                 </a>
                 <a href="#Contact">
-                    <li className="text-md transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Contact</li>
+                    <li className="text-xl transition-all duration-300 p-1 md:p-0 hover:scale-110 ">Contact</li>
                 </a>
             </ul>
 

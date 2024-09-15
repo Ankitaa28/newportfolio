@@ -26,12 +26,12 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <div 
             key={index} 
-            className='group p-6 rounded-xl bg-slate-600 bg-opacity-10 transition-transform duration-300 transform hover:scale-110 hover:bg-slate-500 cursor-pointer relative shadow-xl shadow-black'>
+            className='group p-6 rounded-xl bg-slate-600 bg-opacity-10 transition-transform duration-500 transform  hover:bg-slate-500 cursor-pointer relative shadow-xl shadow-black'>
             <div className='flex items-center justify-center '>
               {skill.icon}
             </div>
             <div 
-              className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-100 text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl'>
+              className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-100 text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl'>
               <div className='text-center'>
                 <div>{skill.name}</div>
                 <div className='text-sm text-gray-300'>{skill.level}</div>
