@@ -64,7 +64,7 @@ const Contact = () => {
           />
         </form>
         <img 
-          src="public\images\social-media-illustration.png" 
+          src="images\social-media-illustration.png" 
           alt="Social Media Illustration" 
           className="md:h-96 mt-8 md:mt-0 w-full md:w-1/2 object-cover"
         />

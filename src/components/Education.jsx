@@ -36,8 +36,8 @@ const Education = () => {
 
       <div className="flex flex-col md:flex-row items-center justify-around w-full p-6">
         <img
-          className="md:h-80 w-full md:w-auto mb-8 md:mb-0 md:mr-10 transition-transform duration-500 transform scale-75"
-          src="public\images\happy-students-celebrating-graduation.png"
+          className="md:h-80 w-full md:w-auto mb-8 md:mb-0 md:mr-10 transition-transform duration-500 transform "
+          src="images\happy-students-celebrating-graduation.png"
           alt="Graduation"
         />
 

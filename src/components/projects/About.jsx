@@ -14,7 +14,7 @@ const About = () => {
         {/* About Image */}
         <img 
           className="md:h-80 w-full md:w-1/2 rounded-lg object-cover mb-6 md:mb-0" 
-          src="public\images\modern-productivity-concept-with-flat-design.png" 
+          src="images\modern-productivity-concept-with-flat-design.png" 
           alt="Productivity Concept"
         />
         
