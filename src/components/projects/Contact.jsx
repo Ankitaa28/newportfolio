@@ -98,7 +98,7 @@ const Contact = () => {
         {/* Notification for form submission */}
       {message && (
         <div
-          className={`mt-4 p-4 w-full md:w-5/6 text-center rounded-lg flex justify-between ${
+          className={`mt-4 p-4 w-full md:w-5/6  rounded-lg flex justify-between ${
             messageType === "success" ? "bg-green-500" : "bg-red-500"
           }`}
         >
