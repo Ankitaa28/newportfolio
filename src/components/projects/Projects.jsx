@@ -13,7 +13,7 @@ const Projects = () => {
           main="This is a simple and efficient web application built using React JS and styled with Tailwind CSS. The app fetches weather data from an external API, ensuring accurate and up-to-date information."
           imageSrc="images\people-analyzing-growth-charts-illustrated.png"
           demoLink="#Home"
-          sourceLink="https://github.com/Ankitaa28/portfolio"
+          sourceLink="https://github.com/Ankitaa28/newportfolio.git"
         />
       </div>
     </div>
