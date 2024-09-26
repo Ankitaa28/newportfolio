@@ -1,6 +1,4 @@
-
-/* Add this CSS to your main stylesheet */
-
+/* App.css */
 @keyframes slideInLeft {
   from {
     transform: translateX(-100%);
@@ -23,12 +21,30 @@
   }
 }
 
-.scroll-section {
-  opacity: 0; /* Initially hidden */
-  animation-fill-mode: forwards; /* Keep the final state of the animation */
-  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+@keyframes fadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.scroll-section.visible {
-  opacity: 1; /* Show when scrolled into view */
+.scroll-section {
+  opacity: 0; /* Initial state for opacity */
+  transition: opacity 0.5s ease;
+}
+
+.scroll-section.slideInLeft {
+  animation: slideInLeft 0.8s forwards; /* Slide in from the left */
+}
+
+.scroll-section.slideInRight {
+  animation: slideInRight 0.8s forwards; /* Slide in from the right */
+}
+
+.scroll-section.fadeUp {
+  animation: fadeUp 0.8s forwards; /* Fade up effect */
 }
