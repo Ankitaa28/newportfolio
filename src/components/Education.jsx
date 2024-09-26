@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RxDoubleArrowRight } from 'react-icons/rx';
+import { motion, AnimatePresence } from 'framer-motion'; // For animations
 
 const Education = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -28,45 +29,66 @@ const Education = () => {
   ];
 
   return (
-    <div
+    <motion.div
       id="Education"
-      className="md:p-24 text-white overflow-hidden flex flex-col md:flex-row items-center md:flex-wrap justify-center bg-slate-400 mx-0 md:mx-20 bg-opacity-5 rounded-lg p-8 mb-10 transition-all duration-1000 cursor-pointer"
+      className="p-10 md:p-24 bg-slate-400 bg-opacity-5 text-slate-800 rounded-lg shadow-xl mx-auto my-10 max-w-7xl  md:mx-20"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
     >
-      <h1 className="text-2xl md:text-4xl font-bold text-white mb-8 md:mb-0 md:w-full text-center">Education</h1>
+      <h1 className="text-3xl md:text-5xl font-bold text-center mb-12 text-white">Education</h1>
 
-      <div className="flex flex-col md:flex-row items-center justify-around w-full p-6">
-        <img
-          className="md:h-80 w-full md:w-auto mb-8 md:mb-0 md:mr-10 transition-transform duration-500 transform "
-          src="images\happy-students-celebrating-graduation.png"
+      <div className="flex flex-col md:flex-row items-center justify-around">
+        {/* Image Section */}
+        <motion.img
+          className="md:h-80 w-full md:w-1/2 mb-8 md:mb-0 rounded-lg hover:scale-105 transition-transform duration-500"
+          src="images/happy-students-celebrating-graduation.png"
           alt="Graduation"
+          whileHover={{ scale: 1.05 }} // Subtle hover scaling effect
         />
 
-        <div className="w-full md:w-2/3 items-center ">
+        {/* Accordion Section */}
+        <div className="w-full md:w-1/2">
           {educationData.map((item, index) => (
-            <div key={index} className="mb-4">
+            <motion.div
+              key={index}
+              className="mb-6 p-6 bg-black rounded-lg  border-l-4 border-slate-700 bg-opacity-25"
+              whileHover={{ scale: 1.02 }} // Slight hover scale effect
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <div
-                className="flex gap-3 py-4 items-center cursor-pointer transition-colors duration-300 rounded-lg md:px-10"
+                className="flex justify-between items-center cursor-pointer transition-colors duration-300"
                 onClick={() => toggleAccordion(index)}
                 aria-expanded={activeIndex === index}
               >
+                <h2 className="text-xl md:text-2xl font-semibold text-white">{item.title}</h2>
                 <RxDoubleArrowRight
-                  size={30}
-                  className={`transition-transform duration-300  ${activeIndex === index ? 'rotate-90' : ''}`}
+                  size={25}
+                  color='white'
+                  className={`transition-transform duration-300 ${activeIndex === index ? 'rotate-90' : ''}`}
                 />
-                <h2 className="text-xl md:text-2xl font-semibold leading-normal hover:text-white ">
-                  {item.title}
-                </h2>
               </div>
-              {activeIndex === index && (
-                <p className="text-sm md:text-md leading-tight md:px-10 transition-opacity duration-300">
-                  {item.details}
-                </p>
-              )}
-            </div>
+
+              <AnimatePresence>
+                {activeIndex === index && (
+                  <motion.p
+                    className="text-md md:text-lg text-white mt-4 pl-5"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {item.details}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
