@@ -15,7 +15,7 @@ import BackToTop from "./components/BackToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [animatedSections, setAnimatedSections] = useState({
+  const [visibleSections, setVisibleSections] = useState({
     home: false,
     education: false,
     skills: false,
@@ -23,25 +23,23 @@ function App() {
     about: false,
     contact: false,
   });
-
-  // Initialize AOS for animations
+  
+  // Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      once: false, // Allow animations to trigger multiple times
+      duration: 800, // Duration of the animations
+      once: true, // Whether animation should happen only once
     });
   }, []);
 
-  // Simulated loading effect
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 3000); // Simulated loading time
 
     return () => clearTimeout(timer);
   }, []);
 
-  // Handle section animation on scroll
   const handleScroll = () => {
     const sections = ['Home', 'Education', 'Skills', 'Projects', 'About', 'Contact'];
     sections.forEach(section => {
@@ -50,7 +48,7 @@ function App() {
         const rect = element.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
         if (isVisible) {
-          setAnimatedSections(prev => ({ ...prev, [section.toLowerCase()]: true }));
+          setVisibleSections(prev => ({ ...prev, [section.toLowerCase()]: true }));
         }
       }
     });
@@ -68,22 +66,22 @@ function App() {
   return (
     <div className="bg-[#0b0d13] h-auto w-full overflow-hidden">
       <Nav />
-      <div id="Home" className={`scroll-section ${animatedSections.home ? 'slideIn fadeUp' : ''}`} data-aos="fade-up">
+      <div id="Home" data-aos="fade-up">
         <Home />
       </div>
-      <div id="Education" className={`scroll-section ${animatedSections.education ? 'slideInRight fadeUp' : ''}`} data-aos="fade-up">
+      <div id="Education" className={`scroll-section`} data-aos="fade-up">
         <Education />
       </div>
-      <div id="Skills" className={`scroll-section ${animatedSections.skills ? 'slideInLeft fadeUp' : ''}`} data-aos="fade-up">
+      <div id="Skills" className={`scroll-section`} data-aos="fade-up">
         <Skills />
       </div>
-      <div id="Projects" className={`scroll-section ${animatedSections.projects ? 'slideInRight fadeUp' : ''}`} data-aos="fade-up">
+      <div id="Projects" className={`scroll-section`} data-aos="fade-up">
         <Projects />
       </div>
-      <div id="About" className={`scroll-section ${animatedSections.about ? 'slideInLeft fadeUp' : ''}`} data-aos="fade-up">
+      <div id="About" className={`scroll-section`} data-aos="fade-up">
         <About />
       </div>
-      <div id="Contact" className={`scroll-section ${animatedSections.contact ? 'slideInRight fadeUp' : ''}`} data-aos="fade-up">
+      <div id="Contact" className={`scroll-section`} data-aos="fade-up">
         <Contact />
       </div>
       <Footer />
