@@ -41,7 +41,7 @@ const Education = () => {
       <div className="flex flex-col md:flex-row items-center justify-around">
         {/* Image Section */}
         <motion.img
-          className="md:h-80 w-full md:w-1/2 mb-8 md:mb-0 rounded-lg hover:scale-105 transition-transform duration-500"
+          className="md:h-96 w-full md:w-1/2 mb-8 md:mb-0 rounded-lg hover:scale-105 transition-transform duration-500"
           src="images/happy-students-celebrating-graduation.png"
           alt="Graduation"
           whileHover={{ scale: 1.05 }} // Subtle hover scaling effect
