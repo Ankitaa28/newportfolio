@@ -11,7 +11,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import BackToTop from "./components/BackToTop"; 
 import Loading from "./components/Loading"; // Import the Loading component
-
+import "./App.css";
 function App() {
   const [loading, setLoading] = useState(true);
 
