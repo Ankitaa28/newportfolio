@@ -46,6 +46,7 @@ const About = () => {
             <button className='bg-emerald-500 text-white p-3 rounded-2xl hover:text-emerald-500 hover:bg-white transition-all duration-300'>
               <a href={resume} target="_blank" rel="noopener noreferrer">View Resume</a>
             </button>
+            
           </div>
         </div>
       </div>
