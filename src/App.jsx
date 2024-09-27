@@ -7,7 +7,7 @@ import Nav from "./components/Nav";
 import Projects from "./components/projects/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/projects/Contact";
-import Loader from "./components/Loading"; 
+import Loader from "./components/Loading";
 import "./App.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -15,20 +15,13 @@ import BackToTop from "./components/BackToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [visibleSections, setVisibleSections] = useState({
-    home: false,
-    education: false,
-    skills: false,
-    projects: false,
-    about: false,
-    contact: false,
-  });
-  
+
   // Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 800, // Duration of the animations
-      once: true, // Whether animation should happen only once
+      duration: 800,  // Duration of animations
+      once: true,     // Whether animation should happen only once
+      easing: 'ease-in-out',
     });
   }, []);
 
@@ -38,25 +31,6 @@ function App() {
     }, 3000); // Simulated loading time
 
     return () => clearTimeout(timer);
-  }, []);
-
-  const handleScroll = () => {
-    const sections = ['Home', 'Education', 'Skills', 'Projects', 'About', 'Contact'];
-    sections.forEach(section => {
-      const element = document.getElementById(section);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        if (isVisible) {
-          setVisibleSections(prev => ({ ...prev, [section.toLowerCase()]: true }));
-        }
-      }
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   if (loading) {
@@ -69,21 +43,32 @@ function App() {
       <div id="Home" data-aos="fade-up">
         <Home />
       </div>
-      <div id="Education" className={`scroll-section`} data-aos="fade-up">
+
+      {/* Education Section: Slide in from the left */}
+      <div id="Education" className={`scroll-section`} data-aos="fade-right">
         <Education />
       </div>
-      <div id="Skills" className={`scroll-section`} data-aos="fade-up">
+
+      {/* Skills Section: Slide in from the right */}
+      <div id="Skills" className={`scroll-section`} data-aos="fade-left">
         <Skills />
       </div>
-      <div id="Projects" className={`scroll-section`} data-aos="fade-up">
+
+      {/* Projects Section: Slide in from the left */}
+      <div id="Projects" className={`scroll-section`} data-aos="fade-right">
         <Projects />
       </div>
-      <div id="About" className={`scroll-section`} data-aos="fade-up">
+
+      {/* About Section: Slide in from the right */}
+      <div id="About" className={`scroll-section`} data-aos="fade-left">
         <About />
       </div>
-      <div id="Contact" className={`scroll-section`} data-aos="fade-up">
+
+      {/* Contact Section: Slide in from the left */}
+      <div id="Contact" className={`scroll-section`} data-aos="fade-right">
         <Contact />
       </div>
+
       <Footer />
       <BackToTop />
     </div>
