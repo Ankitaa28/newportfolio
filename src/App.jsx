@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // Simulated loading time
+    }, 1000); // Simulated loading time
 
     return () => clearTimeout(timer);
   }, []);
@@ -38,7 +38,7 @@ function App() {
   }
 
   return (
-    <div className="bg-[#0b0d13] h-auto w-full overflow-hidden">
+    <div className="bg-[#0b0d13] h-auto w-full overflow-hidden transition-all duration-100">
       <Nav />
       <div id="Home" data-aos="fade-up">
         <Home />
