@@ -4,6 +4,8 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
 
   // Project Data
   const projects = [
@@ -53,40 +55,75 @@ const Projects = () => {
     setCurrentIndex(index);
   };
 
+  // Handle touch start event
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  // Handle touch move event
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.touches[0].clientX);
+  };
+
+  // Handle touch end event
+  const handleTouchEnd = () => {
+    // Swipe left: next slide
+    if (touchStartX - touchEndX > 50) {
+      nextSlide();
+    }
+
+    // Swipe right: previous slide
+    if (touchStartX - touchEndX < -50) {
+      prevSlide();
+    }
+
+    // Reset touch positions
+    setTouchStartX(0);
+    setTouchEndX(0);
+  };
+
   return (
-    <div id='Projects' className='p-10 md:p-24 text-white bg-gray-400 bg-opacity-5 my-10 overflow-hidden rounded-lg'>
+    <div
+      id='Projects'
+      className='p-10 md:p-24 text-white bg-gray-400 bg-opacity-5 my-10 overflow-hidden rounded-lg'
+    >
       {/* Section Title */}
       <h1 className='text-2xl md:text-4xl font-bold text-white text-center'>Projects</h1>
       <h3 className='mt-4 text-center text-gray-400'>More complex projects will be added soon...</h3>
 
       {/* Slider */}
-      <div className='relative w-full flex flex-col items-center justify-center mt-12'>
+      <div
+        className='relative w-full flex flex-col items-center justify-center mt-12'
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Slide Wrapper */}
-        <div 
-          className='flex transition-transform duration-700 ease-in-out w-full md:w-1/2' 
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        <div
+          className='flex transition-transform duration-700 ease-in-out w-full md:w-1/2'
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
           {projects.map((project, index) => (
-           <div key={index} className='w-full flex-shrink-0 flex justify-center p-2 md:p-0'>
-           <ProjectCards
-             title={project.title}
-             main={project.main}
-             imageSrc={project.imageSrc}
-             demoLink={project.demoLink}
-             sourceLink={project.sourceLink}
-           />
-         </div>
-         
+            <div key={index} className='w-full flex-shrink-0 flex justify-center p-2 md:p-0'>
+              <ProjectCards
+                title={project.title}
+                main={project.main}
+                imageSrc={project.imageSrc}
+                demoLink={project.demoLink}
+                sourceLink={project.sourceLink}
+              />
+            </div>
           ))}
         </div>
 
         {/* Navigation Buttons */}
-        <button 
+        <button
           className='absolute left-4 transform -translate-y-1/2 top-1/2 bg-gray-800 bg-opacity-50 p-2 rounded-full hover:bg-opacity-100 transition-all duration-300'
           onClick={prevSlide}
         >
           <FaArrowLeft size={20} />
         </button>
-        <button 
+        <button
           className='absolute right-4 transform -translate-y-1/2 top-1/2 bg-gray-800 bg-opacity-50 p-2 rounded-full hover:bg-opacity-100 transition-all duration-300'
           onClick={nextSlide}
         >
@@ -99,13 +136,15 @@ const Projects = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`mx-2 w-3 h-3 rounded-full ${currentIndex === index ? 'bg-white' : 'bg-gray-500'} transition-colors duration-300`}
+              className={`mx-2 w-3 h-3 rounded-full ${
+                currentIndex === index ? 'bg-white' : 'bg-gray-500'
+              } transition-colors duration-300`}
             />
           ))}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Projects;
