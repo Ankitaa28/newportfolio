@@ -25,10 +25,10 @@ const Projects = () => {
     },
     {
       title: "E-commerce App",
-      main: "A simple e-commerce application showcasing React, Redux, and Tailwind integration.",
+      main: "A simple e-commerce application showcasing HTML ,CSS and JS integration.",
       imageSrc: "images/people-analyzing-growth-charts-illustrated.png",
-      demoLink: "#Home",
-      sourceLink: "#",
+      demoLink: "https://ecommercehtmlcssproject.netlify.app",
+      sourceLink: "https://github.com/Ankitaa28/e-commerce.git",
     },
   ];
 
